@@ -32,3 +32,72 @@ Implementar um serviço que permita que usuários enviem mensagens para um mural
 ## Ferramentas
 
 - Java
+
+## Simular o sistema
+
+Para simular o sistema, siga estes passos:
+
+1. **Compile o código:** Abra um terminal e digite `javac BulletinBoardNode.java`.
+2. **Execute os nós:** Abra três terminais separados. Em cada um, execute o seguinte comando, trocando a porta:
+    - **Terminal 1:** `java BulletinBoardNode 65432`
+    - **Terminal 2:** `java BulletinBoardNode 65433`
+    - **Terminal 3:** `java BulletinBoardNode 65434`
+
+    A ideia é que, quando um nó "falho" for reiniciado, ele execute o método `reconcile` para obter as mensagens perdidas dos outros nós.
+
+3. **Compile o código:** Abra um terminal e digite `javac BulletinBoardClient.java`.
+    - **Execute o cliente:** Inicie o cliente e especifique a porta do nó do servidor que você deseja se conectar. Por exemplo, para se conectar ao nó na porta 65432:
+
+      ```
+      java BulletinBoardClient 65432
+      ```
+      
+    Você pode executar várias instâncias deste cliente para simular múltiplos usuários interagindo com o sistema.
+
+4. **Comandos:**
+    - login <usuario> <senha>
+      - **Ex.1:** login user1 pass1
+      - **Ex.2:** login user2 pass2
+    - postar <mensagem>
+      - **Ex.:** postar Oi Servidor!
+    - ler
+    - exit
+
+## Estrutura do Projeto
+```
+ifba-mural-de-mensagens/
+├── BulletinBoardClient.java
+├── BulletinBoardNode.java
+├── Message.java
+└── README.md
+```
+
+## Documentação
+
+## Evidências de Execução
+
+### Compilar código
+![Compilação dos códigos](image.png)
+
+### Inicializar Nó
+![Nó 1 (Porta 65432)](image-1.png)
+
+![Nó 2 (Porta 65433)](image-2.png)
+
+![Nó 3 (Porta 65434)](image-3.png)
+
+### Inicializar cliente
+![Inicia o cliente](image-4.png)
+
+### Envio de mensagem e demostração de mensagem privada
+![Mensagem logado](image-6.png)
+
+### Demostração de mensagem pública
+![Mensagem sem logar](image-8.png)
+
+### Falha simulada
+#### Tentativa de logar
+![Falha de login](image-9.png)
+
+#### Resposta do servidor
+![Nó falha com a tentativa de login](image-10.png)
