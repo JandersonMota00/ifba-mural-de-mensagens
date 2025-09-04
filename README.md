@@ -63,6 +63,19 @@ Para simular o sistema, siga estes passos:
     - ler
     - exit
 
+## Diagrama da Arquitetura
+```
+  +---------------------+         +---------------------+         +---------------------+
+  |         Nó 1        |  <----> |         Nó 2        |  <----> |         Nó 3        |
+  |    (Porta 65432)    |         |    (Porta 65433)    |         |    (Porta 65434)    |
+  +---------------------+         +---------------------+         +---------------------+
+      ^             ^                 ^             ^                 ^             ^
+      |             |                 |             |                 |             |
++-----------+ +-----------+     +-----------+ +-----------+     +-----------+ +-----------+
+| Cliente 1 | | Cliente 2 |     | Cliente 3 | | Cliente 4 |     | Cliente 5 | | Cliente 6 |
++-----------+ +-----------+     +-----------+ +-----------+     +-----------+ +-----------+
+```
+
 ## Estrutura do Projeto
 ```
 ifba-mural-de-mensagens/
@@ -73,6 +86,8 @@ ifba-mural-de-mensagens/
 ```
 
 ## Documentação
+
+
 
 ## Evidências de Execução
 
